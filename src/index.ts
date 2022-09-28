@@ -61,12 +61,30 @@ console.log(spiderman.getLife());
 
 // Partie 2
 
-let barbareAxeHero = new HeroAxe("Olaf", 10, 40, new Weapon("axe"));
+let barbareAxeHero = new HeroAxe("Olaf", 20, 70, new Weapon("axe"));
 
-let knightSwordHero = new HeroSword("Garen", 12, 50, new Weapon("sword"));
+let knightSwordHero = new HeroSword("Garen", 12, 100, new Weapon("sword"));
 
-let xinSpearHero = new HeroSpear("Xin Xhao", 10, 30, new Weapon("spear"));
+let xinSpearHero = new HeroSpear("Xin Xhao", 10, 50, new Weapon("spear"));
+
+let orcAxeHero = new HeroAxe("Gromash", 25, 70, new Weapon("axe"));
 
 barbareAxeHero.attack(knightSwordHero);
 
 // Partie 3
+
+const fight = (hero1: Hero, hero2: Hero) => {
+  while (hero1.isAlive() && hero2.isAlive()) {
+    hero1.attack(hero2);
+    hero2.attack(hero1);
+  }
+  if (hero1.isAlive()) {
+    return `${hero1.heroName} est vainqueur !`;
+  } else if (hero2.isAlive()) {
+    return `${hero2.heroName} est vainqueur !`;
+  } else {
+    return `${hero1.heroName} et ${hero2.heroName} sont tous les deux morts. Match Nul !`;
+  }
+};
+
+console.log(fight(orcAxeHero, knightSwordHero));
