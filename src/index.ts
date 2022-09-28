@@ -1,2 +1,72 @@
-let message: string = 'Hello World !';
+import { Hero } from "./class/hero";
+import { Weapon } from "./class/weapon";
+import { HeroAxe, HeroSpear, HeroSword } from "./class/weaponizedHeroes";
+
+let message: string = "Hello World !";
 console.log(message);
+
+// ************* Level 1 *************
+
+// primites
+// Les types primitives en TS sont string, number et boolean
+
+//typer un tableau
+const array = [];
+const array1: number[] = []; // array ne contenant que des string
+const array2: [number, string] = [2, "Hello"]; // array avec uniquement 2 éléments, le 1er un nombre le 2eme une string
+const array3: Array<string> = ["Hello", "Dev"];
+
+// any
+// quand on ne veut pas donner un type spécifique pour éviter des erreurs
+
+//typer une fonction et son return
+const myFunction = (param1: number): number => {
+  return param1;
+};
+
+// ************* Level 2 *************
+
+// class
+
+// La classe est une syntaxe pour créer des objets et manipuler l'héritage.
+// le constructor sert à initialiser les valeurs des propriétés
+// les instances de classe sont les objets créés à partir du modèle class
+// this fait référence à l'objet en mode non strict
+// une méthode de class est une fonction qui se lance uniquement dans le contexte de la class. ex: maClasse.method()
+// une propriété peut être public (par défaut) ou privée. Si elle est privée, elle ne sera pas accessible en dehors
+
+// ************ Level 3 ************
+
+// pour diviser, l'élément isolé dans un fichier doit être passé en export et importer avec "import" dans l'autre fichier.
+// l'héritage représente les "enfants" crées à partir d'une class
+// le constructeur est représenté par le "new"
+// appel méthode : monInstance.method()
+
+// ******************* BOSS **********************
+
+// Partie 1
+
+let batman = new Hero("Batman", 8, 20);
+let spiderman = new Hero("Spiderman", 6, 25);
+
+batman.attack(spiderman);
+
+console.log(batman.isAlive()); // true
+console.log(spiderman.isAlive()); // true
+
+batman.setPower(10);
+console.log(batman.getLife());
+batman.attack(spiderman);
+console.log(spiderman.getLife());
+
+// Partie 2
+
+let barbareAxeHero = new HeroAxe("Olaf", 10, 40, new Weapon("axe"));
+
+let knightSwordHero = new HeroSword("Garen", 12, 50, new Weapon("sword"));
+
+let xinSpearHero = new HeroSpear("Xin Xhao", 10, 30, new Weapon("spear"));
+
+barbareAxeHero.attack(knightSwordHero);
+
+// Partie 3
