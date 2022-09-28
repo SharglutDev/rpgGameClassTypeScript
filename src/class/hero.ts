@@ -4,14 +4,13 @@ export class Hero {
   #name: string;
   #power: number;
   #life: number;
+  weapon!: Weapon;
 
   constructor(name: string, power: number, life: number) {
     this.#name = name;
     this.#power = power;
     this.#life = life;
   }
-
-  static weapon: Weapon;
 
   attack(opponent: Hero): void {
     opponent.#life -= this.#power;

@@ -1,7 +1,3 @@
-import { Hero } from "./class/hero";
-import { Weapon } from "./class/weapon";
-import { HeroAxe, HeroSpear, HeroSword } from "./class/weaponizedHeroes";
-
 let message: string = "Hello World !";
 console.log(message);
 
@@ -44,6 +40,10 @@ const myFunction = (param1: number): number => {
 
 // ******************* BOSS **********************
 
+import { Hero } from "./class/hero";
+import { Weapon } from "./class/weapon";
+import { HeroAxe, HeroSpear, HeroSword } from "./class/weaponizedHeroes";
+
 // Partie 1
 
 let batman = new Hero("Batman", 8, 20);
@@ -69,22 +69,42 @@ let xinSpearHero = new HeroSpear("Xin Xhao", 10, 50, new Weapon("spear"));
 
 let orcAxeHero = new HeroAxe("Gromash", 25, 70, new Weapon("axe"));
 
-barbareAxeHero.attack(knightSwordHero);
+// xinSpearHero.attack(barbareAxeHero);
 
 // Partie 3
 
 const fight = (hero1: Hero, hero2: Hero) => {
+  console.log(
+    "\x1b[36m%s\x1b[0m",
+    `${hero1.heroName} & ${hero2.heroName} s'affrontent ! Qui en sortira vainqueur ?`
+  );
+  let i = 1;
   while (hero1.isAlive() && hero2.isAlive()) {
     hero1.attack(hero2);
     hero2.attack(hero1);
+    console.log(
+      `Fin du ${i}${i === 1 ? "er" : "e"} round ! ${
+        hero1.heroName
+      } : ${hero1.getLife()}PV. ${hero2.heroName} : ${hero2.getLife()}PV`
+    );
+    i++;
   }
   if (hero1.isAlive()) {
-    return `${hero1.heroName} est vainqueur !`;
+    console.log(
+      "\x1b[31m%s\x1b[0m",
+      `C'est donc ${hero1.heroName} qui sort vainqueur !`
+    );
   } else if (hero2.isAlive()) {
-    return `${hero2.heroName} est vainqueur !`;
+    console.log(
+      "\x1b[31m%s\x1b[0m",
+      `C'est donc ${hero2.heroName} qui sort vainqueur !`
+    );
   } else {
-    return `${hero1.heroName} et ${hero2.heroName} sont tous les deux morts. Match Nul !`;
+    console.log(
+      "\x1b[31m%s\x1b[0m",
+      `Incroyable ! ${hero1.heroName} et ${hero2.heroName} sont tous les deux morts ! Match Nul !`
+    );
   }
 };
 
-console.log(fight(orcAxeHero, knightSwordHero));
+fight(barbareAxeHero, orcAxeHero);
