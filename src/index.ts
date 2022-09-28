@@ -61,13 +61,16 @@ console.log(spiderman.getLife());
 
 // Partie 2
 
-let barbareAxeHero = new HeroAxe("Olaf", 20, 70, "Lighting Axe", 6);
+let barbare = new HeroAxe("Olaf", 20, 70, "Lighting Axe", 6);
+let orc = new HeroAxe("Gromash", 25, 70, "Executor Axe", 9);
 
-let knightSwordHero = new HeroSword("Garen", 12, 100, "Heaven Sword", 8);
+let samourai = new HeroSword("Zorro Roronoa", 15, 65, "Reiki the Katana", 7);
+let knight = new HeroSword("Garen", 12, 100, "Heaven Sword", 8);
 
-let xinSpearHero = new HeroSpear("Xin Xhao", 10, 60, "Emperor Spear", 10);
+let hercule = new HeroSpear("Herculum", 15, 75, "Zeus Touch", 12);
+let xin = new HeroSpear("Xin Xhao", 10, 60, "Emperor Spear", 10);
 
-let orcAxeHero = new HeroAxe("Gromash", 25, 70, "Executor Axe", 9);
+const heroes: Hero[] = [barbare, orc, samourai, knight, hercule, xin];
 
 // xinSpearHero.attack(barbareAxeHero);
 
@@ -107,4 +110,19 @@ const fight = (hero1: Hero, hero2: Hero) => {
   }
 };
 
-fight(barbareAxeHero, orcAxeHero);
+fight(barbare, orc);
+
+// ******* Bonus 2 : Interface graphique *******
+
+let selector: HTMLElement | null;
+if (typeof document !== undefined) {
+  selector = document.querySelector("#heroesSelector");
+}
+
+heroes.forEach((hero, index) => {
+  const option: HTMLOptionElement = document.createElement("option");
+  option.value = (index + 1).toString();
+  option.textContent = hero.heroName;
+  selector?.appendChild(option);
+  console.log(selector);
+});
