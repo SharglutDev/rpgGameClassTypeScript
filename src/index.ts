@@ -61,13 +61,13 @@ console.log(spiderman.getLife());
 
 // Partie 2
 
-let barbareAxeHero = new HeroAxe("Olaf", 20, 70, new Weapon("axe"));
+let barbareAxeHero = new HeroAxe("Olaf", 20, 70, "Lighting Axe", 6);
 
-let knightSwordHero = new HeroSword("Garen", 12, 100, new Weapon("sword"));
+let knightSwordHero = new HeroSword("Garen", 12, 100, "Heaven Sword", 8);
 
-let xinSpearHero = new HeroSpear("Xin Xhao", 10, 50, new Weapon("spear"));
+let xinSpearHero = new HeroSpear("Xin Xhao", 10, 60, "Emperor Spear", 10);
 
-let orcAxeHero = new HeroAxe("Gromash", 25, 70, new Weapon("axe"));
+let orcAxeHero = new HeroAxe("Gromash", 25, 70, "Executor Axe", 9);
 
 // xinSpearHero.attack(barbareAxeHero);
 
