@@ -9,20 +9,33 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./style/style.css" />
+    <script type="module" src="../dist/index.js"></script>
     <title>RPG Game</title>
   </head>
   <body>
-    <div
-      class="container d-flex justify-content-center align-items-start sm bg-warning mt-5 pt-3"
-    >
-      <select
-        id="heroesSelector"
-        class="form-select w-50"
-        aria-label="Default select example"
-      >
-        <option selected>Choose your hero</option>
-      </select>
+    <h1 class="text-center my-5 text-success">TS Fighting Game</h1>
+    <div class="container sm d-flex flex-column bg-warning py-3 px-5 rounded">
+      <div class="select-block d-flex justify-content-around align-items-start">
+        <select
+          id="select-player1"
+          class="form-select w-auto"
+          aria-label="Default select example"
+        >
+          <option selected>Choose your hero for Player 1</option>
+        </select>
+        <select
+          id="select-player2"
+          class="form-select w-auto"
+          aria-label="Default select example"
+        >
+          <option selected>Choose your hero for Player 2</option>
+        </select>
+      </div>
+      <div class="card-block row">
+        <div id="hero1-card" class="col-6"></div>
+        <div id="hero2-card" class="col-6"></div>
+      </div>
     </div>
-    <script src="../dist/index.js"></script>
+    <!-- <script src="../dist/index.js"></script> -->
   </body>
 </html>
