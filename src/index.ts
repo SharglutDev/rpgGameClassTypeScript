@@ -62,11 +62,37 @@ if (typeof window !== "undefined") {
     document.querySelector("#select-player1");
   const selectorPlayer2: HTMLSelectElement | null =
     document.querySelector("#select-player2");
+  const hero1BlockCard: HTMLDivElement | null =
+    document.querySelector("#hero1-card");
+  const hero2BlockCard: HTMLDivElement | null =
+    document.querySelector("#hero2-card");
+  const fightBtn: HTMLButtonElement | null =
+    document.querySelector("#fightBtn");
 
   heroSelectorGenerator(selectorPlayer1);
   heroSelectorGenerator(selectorPlayer2);
 
-  selectorPlayer1?.addEventListener("change", () => {});
+  console.log();
+
+  selectorPlayer1?.addEventListener("change", () => {
+    heroes.forEach((hero) => {
+      selectorPlayer1.value === hero.heroName &&
+        hero1BlockCard &&
+        heroCardGenerator(hero, hero1BlockCard);
+    });
+    selectorPlayer2?.selectedIndex !== 0 &&
+      fightBtn?.classList.replace("d-none", "d-block");
+  });
+
+  selectorPlayer2?.addEventListener("change", () => {
+    heroes.forEach((hero) => {
+      selectorPlayer2.value === hero.heroName &&
+        hero2BlockCard &&
+        heroCardGenerator(hero, hero2BlockCard);
+    });
+    selectorPlayer1?.selectedIndex !== 0 &&
+      fightBtn?.classList.replace("d-none", "d-block");
+  });
 
   // let selectors: any = document.getElementsByClassName("form-select");
   // for (const selector of selectors) {
