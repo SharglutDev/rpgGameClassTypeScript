@@ -44,14 +44,16 @@ import { Hero } from "./class/hero";
 import { Weapon } from "./class/weapon";
 import { HeroAxe, HeroSpear, HeroSword } from "./class/heritedHeroes";
 import { heroCardGenerator } from "./dom/heroCard";
-import { fight } from "./data/fight";
+import { fight } from "./data/fightInNode";
+import { fightInDom } from "./data/fightInDOM";
 import { heroes } from "./data/heroesList";
 import { heroSelectorGenerator } from "./dom/heroSelector";
 
-// let barbare = new HeroAxe("Olaf", 20, 70, "Lighting Axe", 6);
-// let orc = new HeroAxe("Gromash", 25, 70, "Executor Axe", 9);
+// let barbare = new HeroAxe("Olaf", 20, 70, 6);
+// let orc = new HeroAxe("Gromash", 25, 70, 9);
+// let samourai = new HeroSword("Zorro Roronoa", 15, 65, 7);
 
-// fight(barbare, orc);
+// console.log(fight(barbare, samourai));
 
 // ******* Bonus 2 : Interface graphique *******
 
@@ -72,15 +74,13 @@ if (typeof window !== "undefined") {
   heroSelectorGenerator(selectorPlayer1);
   heroSelectorGenerator(selectorPlayer2);
 
-  console.log();
-
   selectorPlayer1?.addEventListener("change", () => {
     heroes.forEach((hero) => {
       selectorPlayer1.value === hero.heroName &&
         hero1BlockCard &&
         heroCardGenerator(hero, hero1BlockCard);
     });
-    selectorPlayer2?.selectedIndex !== 0 &&
+    selectorPlayer1?.selectedIndex !== 0 &&
       fightBtn?.classList.replace("d-none", "d-block");
   });
 
@@ -92,6 +92,18 @@ if (typeof window !== "undefined") {
     });
     selectorPlayer1?.selectedIndex !== 0 &&
       fightBtn?.classList.replace("d-none", "d-block");
+  });
+
+  let hero1: Hero;
+  let hero2: Hero;
+
+  fightBtn?.addEventListener("click", () => {
+    heroes.forEach((hero) => {
+      if (selectorPlayer1?.value === hero.heroName) hero1 = hero;
+      if (selectorPlayer2?.value === hero.heroName) hero2 = hero;
+    });
+    fightInDom(hero1, hero2);
+    fightBtn.textContent = "Rejouer ?";
   });
 
   // let selectors: any = document.getElementsByClassName("form-select");

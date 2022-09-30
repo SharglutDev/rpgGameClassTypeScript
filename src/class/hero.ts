@@ -13,7 +13,7 @@ export class Hero {
   }
 
   attack(opponent: Hero): void {
-    opponent.#life -= this.#power;
+    opponent.#life -= this.#power + this.weapon?.damage;
   }
 
   isAlive(): boolean {

@@ -14,10 +14,9 @@ export const heroCardGenerator = (hero: Hero, cardColumn: HTMLDivElement) => {
                     <li class="list-group-item">Power : ${hero.getPower()}</li>
                 </ul>
                 <h6 class="card-subtitle my-3 text-muted">Weapon type : ${
-                  hero.constructor.name
+                  hero.weapon.name
                 }</h6>
                 <ul class="list-group">    
-                    <li class="list-group-item">Name : ${hero.weapon.name}</li>
                     <li class="list-group-item">Damage : ${
                       hero.weapon.damage
                     } </li>

@@ -1,6 +1,4 @@
-import { HeroAxe, HeroSpear, HeroSword } from "../class/heritedHeroes";
-
-export const abilities = {
+export const abilities: any = {
   HeroAxe: "HeroSword",
   HeroSword: "HeroSpear",
   HeroSpear: "HeroAxe",

@@ -8,13 +8,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="./style/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="../dist/index.js"></script>
     <title>RPG Game</title>
   </head>
   <body>
     <h1 class="text-center my-5 text-success">TS Fighting Game</h1>
-    <div class="container sm d-flex flex-column bg-warning py-3 px-5 rounded">
+    <div
+      class="container sm d-flex flex-column bg-warning py-3 px-5 mb-5 rounded"
+    >
       <div class="select-block d-flex justify-content-around align-items-start">
         <select
           id="select-player1"
@@ -40,6 +46,7 @@
           Start Fight
         </button>
       </div>
+      <div class="fight-block d-flex flex-column align-items-center"></div>
     </div>
     <!-- <script src="../dist/index.js"></script> -->
   </body>
